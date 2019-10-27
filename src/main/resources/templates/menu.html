@@ -1,0 +1,144 @@
+
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sistema de Administracion de Costos </title>
+
+    <!-- Bootstrap CSS CDN -->
+
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="https://the21servicesexportteam.com/cdn/yizuslabs-costmanagement/css/style.css"/>
+    <!-- Font Awesome JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+
+</head>
+
+<body>
+<p>Welcome to <span th:text="${hostName}">Our App</span></p>
+<input id="hostname" type="hidden" value="" th:value="${hostName}"/>
+
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Costos de Proyectos</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>Opciones de Menu</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administracion</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#" id="idmantunidadnegocio" >Unidad Negocio</a>
+                    </li>
+                    <li>
+                        <a href="#" id="idmantsubunidadnegocio" >Sub Unidad Negocio</a>
+                    </li>
+                    <li>
+                        <a href="#" id="idmantusuario" >Usuarios</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Operaciones</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#" id="idmantcostos">Gestionar Costos</a>
+                    </li>
+                    <li>
+                        <a href="#">Consultas</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
+            <li>
+                <a href="http://127.0.0.1:8887/www.yizuslabs.com-costmanagement/login.html" class="download">Salir</a>
+            </li>
+            <li>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Ocultar - Expandir</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Usuario:</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="codpuesto">Gerente</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="comodinbody">
+
+            <h2>Presentacion</h2>
+            <p id="pedro">La estimación del costo de un proyecto. La estimación de costo de un proyecto consiste en estimar los costos de los recursos necesarios (humanos y materiales) para completar las actividades del proyecto. La estimación de costos incluye la identificación y consideración de varias alternativas de costo, y esto es una decisión gerencial. Por ejemplo realizar trabajo adicional durante la fase de diseño debido a que esto tiene el potencial de reducir el costo en la fase de ejecución.</p>
+            <p></p>
+
+            <div id="line" class="line"></div>
+
+            <h2>Historia de la Empresa</h2>
+            <p>La historia de la empresa es una disciplina intermedia entre la historiografía y la ciencia económica, que recientemente ha pasado a convertirse en disciplina académica. Tiene como objeto el estudio del desarrollo histórico de la empresa, unidad de producción en el sistema capitalista o en la economía de mercado.</p>
+            <p>La empresa privada o la empresa pública, la que coincide con la persona del empresario individual, la empresa familiar o las distintas formas de asociación de capitales, desde la societas y compañía medievales a las compañías privilegiadas del mercantilismo, la sociedad anónima y la gran corporación que surge en el siglo XX son, en su surgimiento y devenir histórico, estudiadas por la historia de la empresa.</p>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+        $("a#idmantunidadnegocio").click( function(event) {
+            var hostname=$("#hostname").val();
+
+            $("#comodinbody").load(hostname+"/costadmin/mantunidadnegocio");
+            $("#codpuesto").text("Gerente");
+
+
+        });
+     /*   $("#idmantactividad").click( function(event) {
+            $("#comodinbody").load("optadmin/mantactividad.html");
+            $("#codpuesto").text("Registrador");
+
+        });*/
+    });
+
+</script>
+</body>
+</html>
